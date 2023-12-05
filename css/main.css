@@ -1,0 +1,277 @@
+/*переменные*/
+:root {
+  --main-font: 'Open Sans', sans-serif;
+  --secondary-font: Raleway, sans-serif;
+  --primary-text-color: #303030;
+  --accent-color: #ff6c00;
+  --primary-white-color: #ffffff;
+  --text-grey: #9da4bd;
+  --text-p: #555555;
+}
+
+/*=======Мінімальний скид, наслідування=====*/
+.list {
+  list-style: none;
+}
+.link {
+  text-decoration: none;
+}
+
+/*наслідування текст.властивості*/
+body {
+  font-family: var(--main-font);
+  font-weight: 600;
+}
+/*=======END =====*/
+
+/*--COMPONENT--*/
+.media-list {
+  display: flex;
+}
+.suptitle {
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  /*text-align: left;*/
+  text-transform: uppercase;
+
+  color: var(--primary-text-color);
+}
+.suptitle-theme-dark {
+  color: var(--text-grey);
+}
+
+.section-description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.67;
+  letter-spacing: 0.02em;
+  /*text-align: left;*/
+
+  color: var(--text-grey);
+}
+.section-description-light {
+  color: var(--text-p);
+}
+
+.section-title {
+  font-family: Raleway;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: 0.05em;
+  /*text-align: left;*/
+
+  color: var(--primary-text-color);
+}
+.section-title-dark {
+  color: var(--primary-white-color);
+}
+
+/*btn*/
+.btn {
+  display: inline-block;
+  background-color: #ffffff;
+
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  border: #ff6c00 solid 1px;
+  border-radius: 25px;
+
+  min-width: 160px;
+  height: 40px;
+  padding: 12px 10px;
+
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+  }
+}
+.btn-theme-dark {
+  color: var(--primary-white-color);
+}
+.btn-theme-light {
+  color: var(--primary-text-color);
+}
+
+/*--/COMPONENT--*/
+
+/*--HEADER--*/
+.menu-link {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.1em;
+  /*text-align: left;*/
+
+  color: var(--primary-white-color);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+.contact-phone-number {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.1em;
+  /*text-align: left;*/
+
+  color: var(--primary-white-color);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+
+/*--/HEADER--*/
+
+/*---HERO-----*/
+.media-list-link {
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.2em;
+  /*text-align: left;*/
+
+  color: var(--primary-text-color);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+
+.hero-title {
+  font-family: var(--secondary-font);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: 0.05em;
+  /*text-align: left;*/
+
+  color: var(--primary-white-color);
+}
+
+/*---/HERO-----*/
+
+/*--ABOUT--*/
+.about-gallery {
+  display: flex;
+}
+.about-suptitle {
+  line-height: 1.18;
+
+  color: var(--primary-text-color);
+}
+
+.about-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.86;
+  letter-spacing: 0.02em;
+  /*text-align: left;*/
+
+  color: var(--text-p);
+}
+/*--/ABOUT--*/
+
+/*--SERVICES--*/
+
+.services-table-name,
+.services-table-price {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.67;
+  letter-spacing: 0.02em;
+
+  color: var(--text-grey);
+}
+/*--/SERVICES--*/
+
+/*--ADVANTAGES--*/
+
+.advantages-list-quantity {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.36;
+  letter-spacing: 0.05em;
+  /*text-align: center;*/
+  color: var(--primary-text-color);
+}
+
+.advantages-list-description {
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0em;
+  /*text-align: center;*/
+  color: var(--primary-text-color);
+}
+
+/*--/ADVANTAGES--*/
+
+/*--EMPLOYEES--*/
+.employees {
+  display: flex;
+}
+.employees-name {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.39;
+  letter-spacing: 0.02em;
+  /*text-align: center;*/
+
+  color: var(--primary-text-color);
+}
+
+.employees-position {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.36;
+  letter-spacing: 0.02em;
+  /*text-align: center;*/
+
+  color: var(--accent-color);
+}
+
+.employees-social-list {
+  display: flex;
+}
+/*--/EMPLOYEES--*/
+
+/*--GALLERY--*/
+.gallery-list {
+  display: flex;
+}
+
+/*--/GALLERY--*/
+
+/*--CONTACT--*/
+
+.contact-list-link,
+.contact-info-date {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.67;
+  letter-spacing: 0.02em;
+  /*text-align: left;*/
+  color: var(--text-grey);
+}
+/*--/CONTACT--*/
+
+/*--FOOTER--*/
+.copyright {
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.2em;
+  /*text-align: left;*/
+  color: var(--text-grey);
+}
+.footer-container {
+  display: flex;
+}
