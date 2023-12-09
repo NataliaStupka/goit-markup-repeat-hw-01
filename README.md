@@ -8,4 +8,5 @@ Repeat html, css. "Barbershop"
 
 - фото оптимізовано в https://squoosh.app/ (поріг якості в оптимізаціїї 75%);
 
--підключаємо: шрифти (https://fonts.google.com/), стилі (в кінці head), normalize,
+-підключаємо: шрифти (https://fonts.google.com/), стилі (в кінці head), normalize
+(https://cdnjs.com/libraries/modern-normalize) після шрифтів та перед стилями,
