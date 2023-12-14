@@ -28,39 +28,48 @@
 
   <body>
     <!--HEADER-->
-    <header class="header">
-      <nav class="nav">
-        <!--logo (./ - на файл idex.html)-->
-        <a href="./" class="logo">
-          <img class="logo-img" src="./imeges/svg/logo.svg" alt="логотип" width="68" height="54" />
-        </a>
-        <ul class="menu list">
-          <li class="menu-item">
-            <a href="#about" class="menu-link link">Про нас</a>
-          </li>
-          <li class="menu-item">
-            <a href="#services" class="menu-link link">Послуги та ціни</a>
-          </li>
-          <li class="menu-item">
-            <a href="#employees" class="menu-link link">Майстри</a>
-          </li>
-          <li class="menu-item">
-            <a href="#contacts" class="menu-link link">Контакти</a>
-          </li>
-        </ul>
-      </nav>
+    <header class="header" style="outline: fuchsia solid 1px">
+      <div class="container  header-container">
+        <nav class="nav">
+          <!--logo (./ - на файл idex.html)-->
+          <a href="./" class="logo link">
+            <img
+              class="logo-img"
+              src="./imeges/svg/logo.svg"
+              alt="логотип"
+              width="68"
+              height="54"
+            />
+          </a>
+          <ul class="menu list">
+            <li class="menu-item">
+              <a href="#about" class="menu-link link">Про нас</a>
+            </li>
+            <li class="menu-item">
+              <a href="#services" class="menu-link link">Послуги та ціни</a>
+            </li>
+            <li class="menu-item">
+              <a href="#employees" class="menu-link link">Майстри</a>
+            </li>
+            <li class="menu-item">
+              <a href="#contacts" class="menu-link link">Контакти</a>
+            </li>
+          </ul>
+          
+        </nav>
+          <!--потім коментар видалити, у відео клас телефону "teg-link"-->
+          <a href="tel:+380441111111" class="contact-phone-number link">+38 044 111 11 11</a>
+          <button type="button" class="btn btn-theme-dark">онлайн запис</button>
 
-      <div>
-        <a href="tel:+380441111111" class="contact-phone-number link">+38 044 111 11 11</a>
-        <button type="button" class="btn btn-theme-dark">онлайн запис</button>
       </div>
     </header>
 
     <main>
       <!--HERO-->
       <section class="hero" style="outline: orangered solid 1px">
-        <div class="hero-left-side">
-          <ul class="list media-list">
+      <div class="container hero-container">
+          <div class="hero-left-side">
+          <ul class="list media-list media-list-hero">
             <li lang="en" class="media-list-item">
               <a href="" target="_blank" rel="noopener noreferrer" class="media-list-link link"
                 >Instagram</a
@@ -78,117 +87,129 @@
           <p lang="en" class="suptitle suptitle-theme-dark">A hair salon for men in Kyiv</p>
           <h1 lang="en" class="hero-title">Barbeshop</h1>
           <p class="section-description">
-            Ми експерти в модних зачісках. Працюємо швидко, обережно та зі смаком.
+            Ми експерти в модних зачісках.<br> Працюємо швидко, обережно та зі смаком.
           </p>
         </div>
+      </div>
       </section>
 
       <!--About-->
-      <section class="about" style="outline: red solid 1px">
-        <div class="about-left-side">
-          <ul class="about-gallery list">
-            <li class="about-gallery-item">
-              <img
-                class="about-gallery-img"
-                src="./imeges/about/about-img1.jpg"
-                alt="майстер за роботою"
-                width="270"
-                height="445"
-              />
-            </li>
-            <li class="about-gallery-item">
-              <img
-                class="about-gallery-img"
-                src="./imeges/about/about-img2.jpg"
-                alt="майстер за роботою"
-                width="270"
-                height="445"
-              />
-            </li>
-          </ul>
-        </div>
+      <section class="about section" style="outline: red solid 1px">
+        <div class="container about-container">
+          <div class="about-left-side">
+            <ul class="about-gallery list">
+              <li class="about-gallery-item">
+                <img
+                  class="about-gallery-img"
+                  src="./imeges/about/about-img1.jpg"
+                  alt="майстер за роботою"
+                  width="270"
+                  height="445"
+                />
+              </li>
+              <li class="about-gallery-item">
+                <img
+                  class="about-gallery-img"
+                  src="./imeges/about/about-img2.jpg"
+                  alt="майстер за роботою"
+                  width="270"
+                  height="445"
+                />
+              </li>
+            </ul>
+          </div>
 
-        <div class="about-right-side">
-          <h2 id="about" class="suptitle about-suptitle">Про нас</h2>
-          <h3 class="section-title">Кращий Барбершоп твого міста.</h3>
-          <p class="section-description section-description-light">
-            Якщо ти хочеш додати у свій образ більше впевненосі - тобі точно до нас.
-          </p>
-          <p class="about-text">
-            Ми команда, яка ніколи не зупиняється на досягнутому та прагне змін. І коли ти потрапиш
-            до рук нашого майстра, то вже ніколи не зможеш бути тим самим. Ми команда, яка завжди з
-            клієнтами "на одній хвилі". Тому ми завжди готові вдосконалити кожного, хто до нас
-            приходить!
-          </p>
-          <button type="button" class="btn btn-theme-light">онлайн-запис</button>
+          <div class="about-right-side">
+            <h2 id="about" class="suptitle about-suptitle">Про нас</h2>
+            <h3 class="section-title">Кращий Барбершоп твого міста</h3>
+            <p class="section-description section-description-light">
+              Якщо ти хочеш додати у свій образ більше впевненосі - тобі точно до нас.
+            </p>
+            <p class="about-text">
+              Ми команда, яка ніколи не зупиняється на досягнутому та прагне змін. І коли ти
+              потрапиш до рук нашого майстра, то вже ніколи не зможеш бути тим самим. Ми команда,
+              яка завжди з клієнтами "на одній хвилі". Тому ми завжди готові вдосконалити кожного,
+              хто до нас приходить!
+            </p>
+            <button type="button" class="btn btn-theme-light">онлайн-запис</button>
+          </div>
         </div>
       </section>
 
       <!--Services-->
-      <section class="services" style="outline: rgb(57, 78, 14) solid 1px">
-        <p class="suptitle suptitle-theme-dark">Проведи час у компанії кращих майстрів.</p>
-        <h2 id="services" class="section-title section-title-dark">Послуги та ціни.</h2>
+      <section class="services section" style="outline: rgb(57, 78, 14) solid 1px">
+        <div class="container services-container">
+          <p class="suptitle suptitle-theme-dark">Проведи час у компанії кращих майстрів.</p>
+          <h2 id="services" class="section-title section-title-dark">Послуги та ціни.</h2>
 
-        <!--можна у вигляді таблиці-->
-        <table class="services-table list">
-          <tr class="services-table-row">
-            <td class="services-table-name">Чоловіча стрижка</td>
-            <td class="services-table-price">від 300 грн</td>
-          </tr>
-          <tr class="services-table-row">
-            <td class="services-table-name">Стрижка бороди</td>
-            <td class="services-table-price">від 200 грн</td>
-          </tr>
-          <tr class="services-table-row">
-            <td class="services-table-name">Стрижка вусів</td>
-            <td class="services-table-price">від 200 грн</td>
-          </tr>
-          <tr class="services-table-row">
-            <td class="services-table-name">Гоління небезпечною бритвою</td>
-            <td class="services-table-price">від 200 грн</td>
-          </tr>
-        </table>
-        <table class="services-table list">
-          <tr class="services-table-row">
-            <td class="services-table-name">Стрижка у стажера</td>
-            <td class="services-table-price">від 50 грн</td>
-          </tr>
-          <tr class="services-table-row">
-            <td class="services-table-name">Стрижка під насадку</td>
-            <td class="services-table-price">від 200 грн</td>
-          </tr>
-          <tr class="services-table-row">
-            <td class="services-table-name">Дитяча стрижка (до 12 років)</td>
-            <td class="services-table-price">від 300 грн</td>
-          </tr>
-          <tr class="services-table-row">
-            <td class="services-table-name">Камуфлювання сивини</td>
-            <td class="services-table-price">від 200 грн</td>
-          </tr>
-        </table>
-
-        <!--можна не таблицю, а через список-->
+          <!--можна у вигляді таблиці-->
         <!--
-        <ul class="list">
-          <li><span>Чоловіча стрижка</span><span>від 300 грн</span></li>
-          <li><span>Стрижка бороди</span><span>від 200 грн</span></li>
-          <li><span>Стрижка вусів</span><span>від 200 грн</span></li>
-          <li><span>Гоління небезпечною бритвою</span><span>від 200 грн</span></li>
-        </ul>
-        <ul class="list">
-          <li><span>Стрижка у стажера</span><span>від 50 грн</span></li>
-          <li><span>Стрижка під насадку</span><span>від 200 грн</span></li>
-          <li><span>Дитяча стрижка (до 12 років)</span><span>від 300 грн</span></li>
-          <li><span>Камуфлювання сивини</span><span>від 200 грн</span></li>
-        </ul>
+ <div class="services-table-container">
+           <table class="services-table list">
+            <tr class="services-table-row">
+              <td class="services-table-name">Чоловіча стрижка</td>
+              <td class="services-table-price">від 300 грн</td>
+            </tr>
+            <tr class="services-table-row">
+              <td class="services-table-name">Стрижка бороди</td>
+              <td class="services-table-price">від 200 грн</td>
+            </tr>
+            <tr class="services-table-row">
+              <td class="services-table-name">Стрижка вусів</td>
+              <td class="services-table-price">від 200 грн</td>
+            </tr>
+            <tr class="services-table-row">
+              <td class="services-table-name">Гоління небезпечною бритвою</td>
+              <td class="services-table-price">від 200 грн</td>
+            </tr>
+          </table>
+          <table class="services-table list">
+            <tr class="services-table-row">
+              <td class="services-table-name">Стрижка у стажера</td>
+              <td class="services-table-price">від 50 грн</td>
+            </tr>
+            <tr class="services-table-row">
+              <td class="services-table-name">Стрижка під насадку</td>
+              <td class="services-table-price">від 200 грн</td>
+            </tr>
+            <tr class="services-table-row">
+              <td class="services-table-name">Дитяча стрижка (до 12 років)</td>
+              <td class="services-table-price">від 300 грн</td>
+            </tr>
+            <tr class="services-table-row">
+              <td class="services-table-name">Камуфлювання сивини</td>
+              <td class="services-table-price">від 200 грн</td>
+            </tr>
+          </table>
+         </div>
         -->
+         
 
-        <button type="button" class="btn btn-theme-dark">онлайн запис</button>
+          <!--можна не таблицю, а через список-->
+          <!---->
+       <div class="services-list-conteiner">
+         <ul class="list services-list">
+          <li class="services-list-item"><span class="services-list-name">Чоловіча стрижка</span><span class="services-list-price">від 300 грн</span></li>
+          <li class="services-list-item"><span class="services-list-name">Стрижка бороди</span><span class="services-list-price">від 200 грн</span></li>
+          <li class="services-list-item"><span class="services-list-name">Стрижка вусів</span><span class="services-list-price">від 200 грн</span></li>
+          <li class="services-list-item"><span class="services-list-name">Гоління небезпечною бритвою</span><span class="services-list-price">від 200 грн</span></li>
+        </ul>
+        <ul class="list services-list">
+          <li class="services-list-item"><span class="services-list-name">Стрижка у стажера</span><span class="services-list-price">від 50 грн</span></li>
+          <li class="services-list-item"><span class="services-list-name">Стрижка під насадку</span><span class="services-list-price">від 200 грн</span></li>
+          <li class="services-list-item"><span class="services-list-name">Дитяча стрижка (до 12 років)</span><span class="services-list-price">від 300 грн</span></li>
+          <li class="services-list-item"><span class="services-list-name">Камуфлювання сивини</span><span class="services-list-price">від 200 грн</span></li>
+        </ul>
+       </div>
+
+          <button type="button" class="btn btn-theme-dark">онлайн запис</button>
+        </div>
       </section>
 
       <!--Advantages-->
-      <section style="outline: blue solid 1px">
-        <div class="advantages-left-side">
+      <section class="advantages section" style="outline: blue solid 1px">
+        <div class="container advantages-container">
+          <div class="advantages-left-side">
           <ul class="advantages-list list">
             <li class="advantages-list-item">
               <p class="advantages-list-quantity">600</p>
@@ -207,7 +228,7 @@
               <p class="advantages-list-description">Подарунків постійним клієнтам</p>
             </li>
           </ul>
-        </div>
+           </div>
 
         <div class="advantages-right-side">
           <p class="suptitle">Стара традиційна школа</p>
@@ -216,13 +237,15 @@
             Про нас говорять лише добре. Але краще 1 раз побачити і відчути, ніж 10 разів прочитати.
           </p>
         </div>
+        </div>
       </section>
 
       <!--EMPLOYEES-->
-      <section class="employees-section" style="outline: blueviolet solid 1px">
-        <p class="suptitle">Для справжніх поціновувачів атмосфери</p>
-        <h2 id="employees" class="section-title">Наші майстри</h2>
-        <ul class="employees list">
+      <section class="employees-section section">
+       <div class="container">
+         <p class="suptitle">Для справжніх поціновувачів атмосфери</p>
+        <h2 id="employees" class="section-title employees-title">Наші майстри</h2>
+        <ul class="employees-list list">
           <li class="employees-card">
             <img
               class="employees-photo"
@@ -233,24 +256,25 @@
             />
             <h3 class="employees-name" lang="en">John Smith</h3>
             <p class="employees-position" lang="en">Extreme Barber</p>
+
             <ul class="employees-social-list list">
-              <li>
-                <a href="" target="_blank" rel="noopener noreferrer">
+              <li class="employees-social-item">
+                <a class="employees-social-link" href="" target="_blank" rel="noopener noreferrer">
                   <img src="./imeges/svg/insta.svg" alt="social network" width="44" />
                 </a>
               </li>
-              <li>
-                <a href="" target="_blank" rel="noopener noreferrer">
+              <li class="employees-social-item">
+                <a class="employees-social-link" href="" target="_blank" rel="noopener noreferrer">
                   <img src="./imeges/svg/twiter.svg" alt="social network" width="44" />
                 </a>
               </li>
-              <li>
-                <a href="" target="_blank" rel="noopener noreferrer">
+              <li class="employees-social-item">
+                <a class="employees-social-link" href="" target="_blank" rel="noopener noreferrer">
                   <img src="./imeges/svg/facebook.svg" alt="social network" width="44" />
                 </a>
               </li>
-              <li>
-                <a href="" target="_blank" rel="noopener noreferrer"
+              <li class="employees-social-item">
+                <a class="employees-social-link" href="" target="_blank" rel="noopener noreferrer"
                   ><img src="./imeges/svg/in.svg" alt="social network" width="44" />
                 </a>
               </li>
@@ -268,22 +292,22 @@
             <h3 class="employees-name" lang="en">Michele Doe</h3>
             <p class="employees-position" lang="en">Extreme Barber</p>
             <ul class="employees-social-list list">
-              <li>
+              <li class="employees-social-item">
                 <a href="" target="_blank" rel="noopener noreferrer">
                   <img src="./imeges/svg/insta.svg" alt="social network" width="44" />
                 </a>
               </li>
-              <li>
+              <li class="employees-social-item">
                 <a href="" target="_blank" rel="noopener noreferrer">
                   <img src="./imeges/svg/twiter.svg" alt="social network" width="44" />
                 </a>
               </li>
-              <li>
+              <li class="employees-social-item">
                 <a href="" target="_blank" rel="noopener noreferrer">
                   <img src="./imeges/svg/facebook.svg" alt="social network" width="44" />
                 </a>
               </li>
-              <li>
+              <li class="employees-social-item">
                 <a href="" target="_blank" rel="noopener noreferrer">
                   <img src="./imeges/svg/in.svg" alt="social network" width="44" />
                 </a>
@@ -302,35 +326,38 @@
             <h3 class="employees-name" lang="en">Alan Blac</h3>
             <p class="employees-position" lang="en">Extreme Barber</p>
             <ul class="employees-social-list list">
-              <li>
+              <li class="employees-social-item">
                 <a href="" target="_blank" rel="noopener noreferrer"
                   ><img src="./imeges/svg/insta.svg" alt="social network" width="44"
                 /></a>
               </li>
-              <li>
+              <li class="employees-social-item">
                 <a href="" target="_blank" rel="noopener noreferrer"
                   ><img src="./imeges/svg/twiter.svg" alt="social network" width="44"
                 /></a>
               </li>
-              <li>
+              <li class="employees-social-item">
                 <a href="" target="_blank" rel="noopener noreferrer"
                   ><img src="./imeges/svg/facebook.svg" alt="social network" width="44"
                 /></a>
               </li>
-              <li>
+              <li class="employees-social-item">
                 <a href="" target="_blank" rel="noopener noreferrer"
                   ><img src="./imeges/svg/in.svg" alt="social network" width="44"
                 /></a>
               </li>
             </ul>
           </li>
+
+          
         </ul>
       </section>
 
       <!--Gallery-->
-      <section class="gallery" style="outline: green solid 1px">
-        <h2 class="hidden">Галерея робіт</h2>
-        <p class="suptitle">Латинською мовою "барба" означає "борода"</p>
+      <section class="gallery section">
+       <div class="container">
+         <h2 class="hidden" hidden>Галерея робіт</h2>
+        <p class="suptitle gallery-suptitle">Латинською мовою "барба" означає "борода"</p>
         <ul class="gallery-list list">
           <li class="gallery-list-item">
             <img
@@ -368,32 +395,42 @@
               height="360"
             />
           </li>
+
+
+            
         </ul>
+       </div>
+       
       </section>
 
-      <!--Contact Form-->
-      <section class="contact-form-section" style="outline: darkcyan solid 1px">
-        <form>
-          <h2 class="section-title section-title-dark">Онлайн-запис</h2>
-          <label
-            >Ім'я
-            <input type="text" />
+      <!--исправить разметку див в секцию?-->
+ <section class="contact-section section">
+  <div class="container contact" style="outline: darkcyan solid 1px">
+       <!--Contact Form-->
+      <div class="contact-form-section" style="outline: forestgreen solid 1px">
+        <form class="form">
+          <h2 class="section-title section-title-dark" >Онлайн-запис</h2>
+          <label class="form-label" 
+            >
+            <input type="text" name="username" placeholder="Ім'я"/>
           </label>
-          <label
-            >Телефон
-            <input />
+
+          <label class="form-label"
+            >
+            <input type="tel" name="phone" placeholder="Телефон"/>
           </label>
-          <label
+          <label class="form-label"
             >Повідомлення
-            <textarea></textarea>
+            <textarea class="form-textarea" rows="5"></textarea>
           </label>
-          <button class="btn btn-theme-dark">Відправити</button>
+          <button class="btn btn-theme-dark" type="submit">Відправити</button>
         </form>
-      </section>
+      </div>
 
       <!--Contact Information-->
-      <section class="contact-info-section" style="outline: salmon solid 1px">
-        <h2 id="contacts" class="section-title section-title-dark">Контакти</h2>
+      
+        <div class="contact-info-container">
+          <h2 id="contacts" class="section-title section-title-dark contact-section-title">Контакти</h2>
         <address>
           <ul class="contact-list list">
             <li class="contact-list-item">
@@ -417,15 +454,18 @@
         </address>
 
         <div>
-          <p class="suptitle">Час роботи</p>
+          <p class="suptitle contact-suptitle">Час роботи</p>
           <p class="contact-info-date">Щоденно з 9:00 до 22:00</p>
         </div>
-      </section>
+        </div>
+      
+ </div>
+ </section>
     </main>
 
     <!--FOOTER-->
     <footer>
-      <div class="footer-container">
+      <div class="footer-container container">
         <p class="copyright">&#169;Copyright 2023</p>
         <ul class="media-list list">
           <li class="media-list-item">
@@ -443,3 +483,21 @@
     </footer>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
