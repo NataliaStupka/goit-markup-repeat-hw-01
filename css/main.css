@@ -7,6 +7,7 @@
   --primary-white-color: #ffffff;
   --text-grey: #9da4bd;
   --text-p: #555555;
+  --transition: 250ms linear;
 }
 
 /*======= Мінімальний скид =====*/
@@ -39,6 +40,17 @@ img {
 }
 /*=======END=====*/
 
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
 /*=======наслідування текст.властивості=====*/
 /*YES*/
 body {
@@ -46,7 +58,6 @@ body {
   font-weight: 600;
 }
 .container {
-  outline: green solid 1px;
   /*Усього ширина контейнера 1170, збыльшио її на 30
   і додамо padding */
   width: 1200px;
@@ -75,11 +86,18 @@ body {
   text-transform: uppercase;
   cursor: pointer;
 
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+
   &:hover,
   &:focus {
+    color: var(--primary-white-color);
     background-color: var(--accent-color);
   }
   /*---end YES---*/
+
+  display: block;
 }
 .btn-theme-dark {
   color: var(--primary-white-color);
@@ -90,17 +108,35 @@ body {
 
 /*---Instagram, Youtube----*/
 .media-list {
+  /*YES*/
   display: flex;
+  align-items: center;
+
+  /*end YES*/
+
+  &::before {
+    display: block;
+    content: '';
+    width: 60px;
+    height: 1px;
+    margin-right: 40px;
+    background: var(--primary-text-color);
+    flex-shrink: 0;
+  }
 }
+
 .media-list-item:not(:last-child) {
   margin-right: 40px;
 }
+
 .media-list-link {
   font-size: 11px;
   line-height: 1.36;
   letter-spacing: 0.2em;
 
   color: var(--primary-text-color);
+
+  transition: color var(--transition);
 
   &:hover,
   &:focus {
@@ -111,17 +147,37 @@ body {
 
 .suptitle {
   /*----YES----*/
+  display: flex;
+  align-items: center;
+
   font-size: 11px;
   line-height: 1.36;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 20px;
+
+  &::before {
+    content: '';
+    width: 60px;
+    height: 1px;
+    margin-right: 20px;
+    background-color: var(--primary-text-color);
+  }
   /*----end YES----*/
 
   color: var(--primary-text-color);
 }
 .suptitle-theme-dark {
+  /*yes*/
   color: var(--text-grey);
+
+  &::before {
+    background-color: #9da4bd;
+  }
+  /*yes*/
+}
+.suptitle-theme-light {
+  color: #303030;
 }
 
 .section-description {
@@ -162,8 +218,14 @@ body {
 
 /*--HEADER--*/
 .header {
+  /*yes*/
+  position: absolute;
+  top: 0;
+  left: 0;
   padding-top: 32px;
   padding-bottom: 32px;
+  width: 100%;
+  /*end yes*/
 
   /*для прилипання хедера до верху сторінки
       position: fixed;
@@ -184,6 +246,11 @@ body {
 .logo {
   /*----YES---*/
   margin-right: 70px;
+
+  animation-duration: 2000ms; /*тривалість*/
+  animation-timing-function: linear; /*розподіл часу для анімації*/
+  animation-delay: 1000ms; /*затримка*/
+  animation-iteration-count: 3; /*повторення*/
   /*---end YES------*/
 }
 .menu {
@@ -206,11 +273,31 @@ body {
 
   color: var(--primary-white-color);
 
+  transition: color var(--transition);
+
   &:hover,
   &:focus {
     color: var(--accent-color);
   }
+
+  &::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: var(--accent-color);
+    opacity: 0;
+    transform: scalex(0.1);
+
+    transition: opacity 250ms linear, transform 250ms linear 50ms;
+  }
+  &:hover::after {
+    /*при ховері для афтер*/
+    opacity: 1;
+    transform: scalex(1);
+  }
 }
+
 .contact-phone-number {
   /*---YES---*/
   font-size: 12px;
@@ -222,6 +309,8 @@ body {
 
   color: var(--primary-white-color);
 
+  transition: color var(--transition);
+
   &:hover,
   &:focus {
     color: var(--accent-color);
@@ -232,36 +321,52 @@ body {
 
 /*---HERO-----*/
 .hero-container {
+  /*yes*/
   display: flex;
-  padding-top: 152px;
-  padding-bottom: 206px;
-  background-image: url(../imeges/hero/slider-overlay.png), url(../imeges/hero/hero-img\ 3.jpg);
-  background-repeat: no-repeat;
-  background-size: 1170px 680px;
-  background-position: 100px 0px;
+  /*end yes*/
 }
 .hero-left-side {
+  /*yes*/
+  display: flex;
+  align-items: flex-end;
   width: 100px;
+  padding-left: 34px;
+  padding-bottom: 40px;
+  /*end yes*/
 }
 .media-list-hero {
-  flex-direction: column-reverse;
+  /*yes*/
+  transform-origin: left top; /*стосовно чого здійснюємо обертання*/
+  transform: rotate(-90deg) translateX(-18px); /*відмінусоват висоту елементу в неперевернутому стані*/
+
+  /*end yes*/
 }
 
 .hero-right-side {
-  flex-grow: 1;
+  /*yes*/
+  flex-grow: 1; /*щоб зайняло більше місця*/
+
+  padding-top: 272px; /*з урахуванням хедеру, що вийнятий з потоку*/
+  padding-bottom: 206px;
   padding-left: 100px;
+  background-color: var(--primary-text-color);
+  background-image: linear-gradient(#26191b33, #191c2633), url(../imeges/hero/hero-img\ 3.jpg);
+  background-size: cover;
+  /*end yes*/
+
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 .hero-title {
-  margin-bottom: 20px;
-
+  /*yes*/
   font-family: var(--secondary-font);
   font-size: 72px;
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: 0.05em;
-  /*text-align: left;*/
-
+  margin-bottom: 20px;
   color: var(--primary-white-color);
+  /*end yes*/
 }
 
 /*---/HERO-----*/
@@ -280,6 +385,11 @@ body {
   margin-right: 64px;
 }
 .about-suptitle {
+  /*для ::before */
+  /*align-items: center;
+  display: flex;
+*/
+
   line-height: 1.18;
 
   color: var(--primary-text-color);
@@ -292,7 +402,6 @@ body {
   font-weight: 400;
   line-height: 1.86;
   letter-spacing: 0.02em;
-  /*text-align: left;*/
 
   color: var(--text-p);
 }
@@ -300,10 +409,11 @@ body {
 
 /*--SERVICES--*/
 .services {
-  background-color: #111319;
+  /*yes*/
   background-image: url(../imeges/services/services.png);
-  background-repeat: no-repeat;
+  background-color: #111319;
   background-size: cover;
+  /*end yes*/
 }
 
 /*
@@ -322,13 +432,17 @@ body {
   color: var(--text-grey);
 }
 */
-.services-list-conteiner {
+.services-list-container {
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
 }
 .services-list {
-  min-width: 585px;
-  margin-bottom: 50px;
-  padding-right: 40px;
+  /*yes*/
+  flex-basis: 50%;
+  padding: 30px 40px;
+  /*border: 1px solid var(--primary-text-color);*/
+  /*end yes*/
 
   &:nth-child(2n + 1) {
     background-image: linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%);
@@ -339,20 +453,46 @@ body {
 }
 
 .services-list-item {
+  /*yes*/
   display: flex;
   justify-content: space-between;
+  /*end yes*/
+
   padding-top: 30px;
-  padding-bottom: 20px;
-  padding-left: 40px;
 
   font-size: 18px;
   font-weight: 400;
   line-height: 1.67;
   letter-spacing: 0.02em;
-  /*text-align: left;*/
+
   color: var(--text-grey);
+
+  &:nth-child(1) {
+    padding-top: 0;
+  }
 }
 
+.services-list-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-grow: 1;
+
+  &::after {
+    display: block;
+    flex-grow: 1;
+
+    content: '';
+    height: 1px;
+    background-color: rgba(157, 164, 189, 12%);
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+.services-btn {
+  margin: 0 auto;
+}
 /*--/SERVICES--*/
 
 /*--ADVANTAGES--*/
@@ -363,20 +503,52 @@ body {
   padding-left: 100px;
   margin-right: 130px;
 }
+.advantages-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+.advantages-list-item {
+  box-sizing: border-box;
+  flex-basis: calc((100% - 30px * 2) / 2);
+  margin-left: 30px;
+  margin-top: 30px;
+  padding: 20px;
+
+  background-color: #f7f7f7;
+
+  &:nth-child(odd) {
+    transform: translateY(-9px);
+  }
+  &:nth-child(even) {
+    transform: translateY(20px);
+  }
+}
 .advantages-list-quantity {
+  position: relative;
   font-size: 42px;
   font-weight: 700;
   line-height: 1.36;
   letter-spacing: 0.05em;
-  /*text-align: center;*/
+  text-align: center;
   color: var(--primary-text-color);
+
+  & span {
+    position: absolute;
+    font-size: 16px;
+    line-height: 1.38;
+    text-align: start;
+
+    color: var(--accent-color);
+  }
 }
 
 .advantages-list-description {
   font-size: 11px;
   line-height: 1.36;
   letter-spacing: 0em;
-  /*text-align: center;*/
+  text-align: center;
   color: var(--primary-text-color);
 }
 
@@ -414,8 +586,39 @@ body {
   margin-top: 30px;
   /*end YES*/
 }
-.employees-photo {
+.employees-wrapper {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
   margin-bottom: 30px;
+
+  &:hover .overlay,
+  &:focus .overlay {
+    transform: translate(0px, 0px);
+  }
+}
+
+/*----*/
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(0px, 100%);
+  min-height: 100%;
+  overflow-y: auto; /*для преповнюваного контенту*/
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.86;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--primary-text-color);
+  background-color: hsla(189, 40%, 93%, 0.5);
+  padding: 20px;
+
+  transition: transform var(--transition);
 }
 
 .employees-name {
@@ -443,16 +646,43 @@ body {
 }
 
 .employees-social-list {
+  /*yes*/
   display: flex;
+  /*end yes*/
+  /*часто, все що під фото, групують у дів і додють йому падінги, а на ul - space-between*/
   justify-content: center;
 }
-.employees-social-item:hover {
-  color: #ff6c00;
-}
+
 .employees-social-item:not(:last-child) {
   margin-right: 10px;
 }
 
+.employees-social-link {
+  /*yes*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-white-color);
+  fill: var(--primary-text-color);
+
+  transition: fill var(--transition), background-color var(--transition);
+
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+    background-color: var(--text-p);
+  }
+  /*end yes*/
+}
+.icon-social {
+  /*yes*/
+  width: 20px;
+  height: 20px;
+  /*end yes*/
+}
 /*--/EMPLOYEES--*/
 
 /*--GALLERY--*/
@@ -490,44 +720,120 @@ body {
 .contact {
   display: flex;
 }
+.contact-form-section {
+  width: 640px;
+  padding-left: 40px;
+}
 .form {
   width: 560px;
-  padding-right: 40px;
+  margin-right: 40px;
 }
-.form-label {
+.form-wraper {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
   margin-bottom: 44px;
 }
+.form-label {
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  color: var(--text-grey);
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+.form-input {
+  width: 260px;
+  height: 24px;
+  border: none;
+  border-bottom: 1px solid #9da4bd66;
+  background-color: transparent;
+
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  color: var(--text-grey);
+
+  &:focus {
+    font-size: 11px;
+    line-height: 1.18;
+    letter-spacing: 0.1em;
+    color: var(--primary-white-color);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:not(:placeholder-shown):valid {
+    border-color: green;
+  }
+  &:not(:placeholder-shown):invalid {
+    border-color: red;
+  }
+}
+
 .form-textarea {
+  width: 100%;
+  height: 76px;
+  margin-bottom: 44px;
   resize: none;
+
+  font-size: 11px;
+  line-height: 1.36;
+  letter-spacing: 0.1em;
+  color: var(--text-grey);
+
+  border: none;
+  border-bottom: 1px solid #9da4bd66;
+  background-color: transparent;
+
+  &::placeholder {
+    text-transform: uppercase;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
 /*Contact*/
-.contact-info-container {
+.contact-info-section {
+  width: 610px;
   margin-left: 100px;
 }
 .contact-section-title {
   margin-bottom: 40px;
 }
 .contact-list-item {
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
 
   &:last-child {
     margin-bottom: 70px;
   }
 }
+
+.icon-contact {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-grey);
+  margin-right: 16px;
+}
+
 .contact-list-link,
 .contact-info-date {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.67;
   letter-spacing: 0.02em;
-  /*text-align: left;*/
   color: var(--text-grey);
 }
 .contact-suptitle {
   margin-bottom: 22px;
+  color: var(--primary-white-color);
 }
 /*--/CONTACT--*/
 
@@ -536,7 +842,6 @@ body {
   font-size: 11px;
   line-height: 1.36;
   letter-spacing: 0.2em;
-  /*text-align: left;*/
   color: var(--text-grey);
 }
 .footer-container {
@@ -546,4 +851,222 @@ body {
   padding-bottom: 56px;
 
   background-color: #f7f7f7;
+}
+
+/*--MODAL--*/
+.backdrop {
+  z-index: 10;
+  /*yes*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(157, 164, 189, 0.5);
+
+  transition: opacity var(--transition), visibility var(--transition);
+  /*end yes*/
+}
+
+.modal {
+  /*yes*/
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background-color: var(--primary-white-color);
+  padding: 40px;
+  /*end yes*/
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.is-hidden {
+  opacity: 0; /*робе елементи прозорими, та інтерактивні елементи можна не зникають*/
+  visibility: hidden; /*цей сховає елементи від мишки та ін.*/
+  pointer-events: none; /*щоб можна було клацнути через бекдроп (невидемий), дозволити пропускати через нього дії*/
+}
+.btn-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  fill: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  cursor: pointer;
+  transition: fill var(--transition);
+
+  &:hover {
+    fill: var(--accent-color);
+  }
+}
+/*--Form backdrop--*/
+.bd-form-title {
+  /*yes*/
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+  /*end yes*/
+  display: block;
+}
+.bd-form {
+  /*yes*/
+  display: flex;
+  flex-direction: column;
+  /*end yes*/
+}
+.bd-form-label {
+  /*yes*/
+  font-size: 14px; /*стилі для тексту які приміняться до "Ім'я", ...*/
+  font-weight: 400;
+  margin-bottom: 10px;
+  /*end yes*/
+}
+.bd-form-input-wrapper {
+  position: relative;
+  display: block;
+}
+.bd-form-input {
+  /*yes*/
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  margin-top: 4px;
+  padding-left: 42px;
+  transition: border-color var(--transition);
+  /*end yes*/
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+  &:focus + .bd-form-icon {
+    /* + селектор першого сусіда зверху*/
+    fill: var(--accent-color);
+  }
+
+  &:not(:placeholder-shown):valid {
+    border-color: green;
+  }
+  &:not(:placeholder-shown):invalid {
+    border-color: red;
+  }
+}
+.bd-form-icon {
+  /*yes*/
+  /*display: block;*/
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  transition: fill var(--transition);
+  /*end yes*/
+}
+
+.bd-form-message {
+  /*yes*/
+  width: 100%;
+  height: 120px;
+  margin-top: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  padding: 12px 16px;
+  resize: none;
+  transition: border-color var(--transition);
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+
+  &::placeholder {
+    color: var(--text-grey);
+    text-transform: uppercase;
+  }
+  /*end yes*/
+}
+
+/*створення кастомного checkbox (befor на label(замінить оригінальний checkbox), на checkbox клас visualy-hidden)*/
+.bd-form-checkbox {
+  &:checked + .bd-form-checkbox-label::before {
+    background-color: var(--accent-color);
+    background-image: url('../imeges/icon-check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid var(--accent-color);
+  }
+
+  &:focus + .bd-form-checkbox-label::before {
+    outline: 1px solid var(--accent-color);
+  }
+}
+.bd-form-checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text-p);
+  margin-bottom: 30px;
+
+  &::before {
+    display: block;
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin-right: 7px;
+  }
+}
+
+.bd-btn {
+  margin: 0 auto;
+}
+
+/*----arrow-up---*/
+.icon-arrow-up {
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+}
+.arrow-up-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 60%;
+  background-color: hsla(0, 0%, 33%, 0.5);
+
+  transition-property: background-color, transform;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+
+  &:hover,
+  &:focus {
+    background-color: hsla(0, 0%, 33%, 0.8);
+    transform: scale(1.05);
+  }
+}
+.arrow-up {
+  width: 20px;
+  height: 20px;
+  fill: var(--primary-white-color);
 }
